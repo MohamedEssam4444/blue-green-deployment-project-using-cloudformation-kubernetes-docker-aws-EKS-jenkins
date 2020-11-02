@@ -34,7 +34,7 @@ pipeline {
       steps {
         withAWS(region: 'us-east-2', credentials: 'MyCredentials') {
           sh '''
-                      kubectl config use-context arn:aws:eks:us-east-2:128971627436:cluster/jenkinstest
+                      kubectl config use-context jenkinstest
                    '''
         }
 
