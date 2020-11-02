@@ -15,7 +15,7 @@ pipeline {
             }
            }
           }   
-      stage('push docker image to dockerhub repository')
+      stage('push docker image to dockerhub repository'){
         steps {
           withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
              sh '''
@@ -38,8 +38,10 @@ pipeline {
                  withAWS(region:'us-east-2',credentials:'MyCredentials') {
                  sh '''
                       kubectl apply -f ./blue-replication-controller.yaml
-                   '''           }            
- }
+                   '''         
+                   }    
+                   }
+                   }
           stage('create replication controller for green app') {
              steps {
                  withAWS(region:'us-east-2',credentials:'MyCredentials') {
@@ -55,7 +57,7 @@ pipeline {
                       kubectl apply -f ./blue-service.yaml
                    '''           }            
  }
-
+}
           stage('Sanity check') {
                     steps {
                         input "Does the staging environment look ok?"
