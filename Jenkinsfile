@@ -22,7 +22,7 @@ pipeline {
       steps {
         withCredentials(bindings: [[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]) {
           sh '''
-               docker login -u $DOCKER_USERNAME 
+               docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
                docker push sidiali/capstone_repo:capstone_app 
                '''
         }
