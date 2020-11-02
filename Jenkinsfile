@@ -29,6 +29,17 @@ pipeline {
 
       }
     }
+    
+    stage('create kubecontext file') {
+      steps {
+        withAWS(region: 'us-east-2', credentials: 'MyCredentials') {
+          sh '''
+                      aws eks update-kubeconfig --name jenkinstest
+                   '''
+        }
+
+      }
+    }
 
     stage('Set current kubectl context') {
       steps {
