@@ -34,7 +34,7 @@ pipeline {
       steps {
         withAWS(region: 'us-east-2', credentials: 'MyCredentials') {
           sh '''
-                      aws eks update-kubeconfig --name jenkinstest
+                      aws eks update-kubeconfig --name jenkinstest1
                    '''
         }
 
@@ -45,7 +45,7 @@ pipeline {
       steps {
         withAWS(region: 'us-east-2', credentials: 'MyCredentials') {
           sh '''
-                      kubectl config use-context arn:aws:eks:us-east-2:128971627436:cluster/jenkinstest
+                      kubectl config use-context arn:aws:eks:us-east-2:128971627436:cluster/jenkinstest1
                    '''
         }
 
@@ -87,7 +87,7 @@ pipeline {
 
     stage('Sanity check') {
       steps {
-        input 'Does the staging environment look ok?'
+        input 'Does the green staging environment ready to be deployed ?'
       }
     }
 
