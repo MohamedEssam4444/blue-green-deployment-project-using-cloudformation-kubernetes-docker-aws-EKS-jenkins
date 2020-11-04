@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #step1 create aws eks cluster
 eksctl create cluster \
-  --name jenkinstest \
+  --name jenkinstest1 \
+  --region us-east-2 \
   --version 1.18 \
   --node-type t2.micro \
   --nodes 3 \
