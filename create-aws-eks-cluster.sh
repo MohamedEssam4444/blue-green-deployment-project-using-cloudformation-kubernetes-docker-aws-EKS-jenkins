@@ -3,7 +3,7 @@
 eksctl create cluster \
   --name jenkinstest2 \
   --region us-east-2 \
-  --version 1.17 \
+  --version 1.18 \
   --node-type t2.micro \
   --nodes 3 \
   --nodes-min 1 \
