@@ -34,7 +34,7 @@ pipeline {
       steps {
         withAWS(region: 'us-east-2', credentials: 'MyCredentials') {
           sh '''
-                      aws eks update-kubeconfig --name jenkinstest1
+                      aws eks update-kubeconfig --name jenkinstest2
                    '''
         }
 
@@ -45,7 +45,7 @@ pipeline {
       steps {
         withAWS(region: 'us-east-2', credentials: 'MyCredentials') {
           sh '''
-                      kubectl config use-context arn:aws:eks:us-east-2:128971627436:cluster/jenkinstest1
+                      kubectl config use-context arn:aws:eks:us-east-2:128971627436:cluster/jenkinstest2
                    '''
         }
 
