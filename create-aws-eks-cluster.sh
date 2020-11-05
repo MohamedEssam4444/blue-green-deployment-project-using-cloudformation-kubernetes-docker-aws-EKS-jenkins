@@ -9,4 +9,6 @@ eksctl create cluster \
   --nodes-min 1 \
   --nodes-max 4 \
   --managed
-
+  
+#step2 create kubeconfig file to store info of cluster so we can access it later and communicate with it using kubectl 
+aws eks --region us-east-2 update-kubeconfig --name jenkinstest1
