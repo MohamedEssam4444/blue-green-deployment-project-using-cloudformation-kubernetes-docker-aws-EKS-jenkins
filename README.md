@@ -14,7 +14,7 @@
 4. create aws cluster by running create-aws-eks-cluster.sh 
 5. run jenkinsfile which will build docker image and upload it to dockerhub and then create 2 stages blue and green deployment and run the blue deployment using blue-service which is a kubernetes loadbalancer pointing to the blue deployment using code `selector=blue` then check if the green environment is ready for being used if yes jenkins will run green-service which will point loadbalancer to the green deployment using code `selector=green'
 
-####proven steps:
+#### proven steps:
 1. 3 node-cluster created: 
 
 ![Screenshot from 2020-11-06 07-13-45](https://user-images.githubusercontent.com/68178003/100597972-c867d380-3306-11eb-9a19-b935774cb24f.png)
