@@ -87,7 +87,7 @@ pipeline {
 
     stage('Sanity check') {
       steps {
-        input 'Does the green staging environment ready to be deployed ?'
+        input 'Does the staging environment look ok ?'
       }
     }
 
